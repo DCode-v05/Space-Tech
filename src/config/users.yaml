@@ -1,0 +1,33 @@
+credentials:
+  usernames:
+    admin:
+      email: admin@isro.gov.in
+      name: "Admin User"
+      password: "$2b$12$EixZaYVK1fsbw1ZfbX3OXePaWxn96p36WQoeG6Lruj3vjPGga31lW"  # password: admin123
+      role: "admin"
+    operator:
+      email: operator@isro.gov.in
+      name: "Satellite Operator"
+      password: "$2b$12$EixZaYVK1fsbw1ZfbX3OXePaWxn96p36WQoeG6Lruj3vjPGga31lW"  # password: operator123
+      role: "operator"
+    viewer:
+      email: viewer@isro.gov.in
+      name: "Guest Viewer"
+      password: "$2b$12$EixZaYVK1fsbw1ZfbX3OXePaWxn96p36WQoeG6Lruj3vjPGga31lW"  # password: viewer123
+      role: "viewer"
+
+cookie:
+  expiry_days: 1
+  key: "isro_gnss_auth"
+  name: "isro_gnss_cookie"
+
+authorization:
+  admin:
+    - "*"
+  operator:
+    - "dashboard"
+    - "satellites"
+    - "alerts"
+  viewer:
+    - "dashboard"
+    - "satellites"

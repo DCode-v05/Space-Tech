@@ -1,0 +1,16 @@
+users:
+  admin:
+    email: admin@isro.gov.in
+    name: Admin User
+    password: f347d54679c0611a0cf4aec21502508096abbb43cde282a3fd194905503a947b943a74161e7060b28da526590f44f78cadf09cbea22471dd576ed7de46348663b431b7c1aa8f64c54af1068b25f90c3789f587c170e5b9be19370cd5714b42c9
+    role: admin
+  operator:
+    email: operator@isro.gov.in
+    name: Operator User
+    password: 35312a91d8ba3b32e4422840ca83d17cf46dfe5b05162d0b246b21e7bb520c49176676a44a82a40b0768e4367d7c946704951cc128efba111a45187b3856f339297c39dd1209f94a0a415f2efafaffe825530e1a57a7dc82eb90e096b5cb4db0
+    role: operator
+  viewer:
+    email: viewer@isro.gov.in
+    name: Viewer User
+    password: a51dcb6ec1eb19825e9011acdccfbd21d9e4a487feddafde99b6b8f81b4c3425a10f45104339511b280eeb2c210b74e3cdef9e598a06ff5da4560a169b086c41db0f4a8e54d74bb852e64b5d0e184157b94a971e9bc022601a60600ad74c13da
+    role: viewer

@@ -1,0 +1,81 @@
+# Data configuration
+data:
+  # Input features (update these based on your actual data)
+  input_columns:
+    - 'clock_error'
+    - 'x_error'
+    - 'y_error'
+    - 'z_error'
+  
+  # Target columns (should match the last part of input_columns)
+  target_columns:
+    - 'clock_error'
+    - 'x_error'
+    - 'y_error'
+    - 'z_error'
+  
+  # Sequence length for time series (number of time steps)
+  sequence_length: 96  # 24 hours at 15-minute intervals
+  
+  # Prediction horizons in minutes
+  prediction_horizons: [15, 30, 60, 120, 1440]  # 15min to 24h
+  
+  # Training/validation split
+  train_val_split: 0.8
+  
+  # Batch size
+  batch_size: 32
+  
+  # Rolling windows for feature engineering (in hours)
+  rolling_windows: [6, 12, 24, 48]
+
+# Model architecture
+model:
+  input_size: 64  # Will be set based on feature engineering
+  d_model: 256    # Dimension of the model
+  nhead: 8        # Number of attention heads
+  num_layers: 6   # Number of transformer layers
+  dropout: 0.1    # Dropout rate
+  output_size: 4  # Number of target variables
+
+# Training configuration
+training:
+  epochs: 200
+  batch_size: 32
+  learning_rate: 1e-4
+  weight_decay: 1e-5
+  lr_patience: 5  # Epochs to wait before reducing LR
+  patience: 10     # Early stopping patience
+  
+  # Directory to save model checkpoints and logs
+  save_dir: 'models/saved'
+  
+  # Logging
+  log_interval: 10  # Log every N batches
+  save_interval: 1  # Save checkpoint every N epochs
+
+# Evaluation configuration
+evaluation:
+  metrics:
+    - 'mse'
+    - 'mae'
+    - 'rmse'
+    - 'r2'
+    - 'mape'
+  
+  # Directory to save evaluation results
+  output_dir: 'results'
+  
+  # Whether to generate plots
+  generate_plots: true
+
+# API configuration
+api:
+  host: '0.0.0.0'
+  port: 8000
+  debug: false
+  workers: 4
+  
+  # Model and processor paths (will be set during training)
+  model_path: 'models/saved/best_model.pt'
+  processor_path: 'data/processed/advanced_processor.joblib'
